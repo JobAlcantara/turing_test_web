@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turing Test Arena</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Experimento de conversacion</p>
+        <h1>Turing Test Arena</h1>
+        <p class="hero-copy">
+          Dos chats, una sola decision. El participante puede conversar en paralelo, comparar estilos de respuesta
+          y decidir cual de los dos se siente mas humano.
+        </p>
+        <p class="hero-copy">
+          Mientras tanto, el operador humano responde desde una vista privada separada para que la experiencia siga
+          siendo ciega para el participante.
+        </p>
+      </div>
+
+      <aside class="control-card">
+        <h2>Marcador</h2>
+        <p class="control-copy">Lleva el control de la prueba y registra la eleccion final al terminar.</p>
+        <label for="guess-select">Quien crees que es la persona real?</label>
+        <select id="guess-select">
+          <option value="">Selecciona una opcion</option>
+          <option value="chat-a">Chat A</option>
+          <option value="chat-b">Chat B</option>
+        </select>
+        <button id="save-guess-button" type="button">Guardar conclusion</button>
+        <p id="guess-status" class="guess-status"></p>
+      </aside>
+    </section>
+
+    <section class="chat-grid">
+      <article class="chat-panel" data-chat-panel="chat-a">
+        <header class="chat-header">
+          <div>
+            <p class="chat-label">Chat A</p>
+            <h2>Conversacion 1</h2>
+          </div>
+          <span class="status-pill">Disponible</span>
+        </header>
+
+        <div class="messages" id="chat-a-messages" aria-live="polite"></div>
+
+        <form class="composer" data-chat-form="chat-a">
+          <label class="sr-only" for="chat-a-input">Escribe un mensaje para Chat A</label>
+          <textarea id="chat-a-input" rows="3" placeholder="Escribe tu mensaje para Chat A..."></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </article>
+
+      <article class="chat-panel" data-chat-panel="chat-b">
+        <header class="chat-header">
+          <div>
+            <p class="chat-label">Chat B</p>
+            <h2>Conversacion 2</h2>
+          </div>
+          <span class="status-pill azure">Disponible</span>
+        </header>
+
+        <div class="messages" id="chat-b-messages" aria-live="polite"></div>
+
+        <form class="composer" data-chat-form="chat-b">
+          <label class="sr-only" for="chat-b-input">Escribe un mensaje para Chat B</label>
+          <textarea id="chat-b-input" rows="3" placeholder="Escribe tu mensaje para Chat B..."></textarea>
+          <button type="submit">Enviar</button>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <template id="message-template">
+    <article class="message">
+      <p class="message-role"></p>
+      <p class="message-content"></p>
+    </article>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>

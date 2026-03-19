@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Operador</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page-shell page-shell-operator">
+    <section class="hero hero-operator">
+      <div>
+        <p class="eyebrow">Panel privado</p>
+        <h1>Operador humano</h1>
+        <p class="hero-copy">
+          Esta vista es para ti. Aqui lees lo que escribe el participante en el chat humano y contestas manualmente.
+        </p>
+      </div>
+
+      <aside class="control-card">
+        <h2>Como usarlo</h2>
+        <p class="control-copy">
+          Deja esta pagina abierta mientras tu companero usa la pagina principal. Los mensajes nuevos apareceran solos.
+        </p>
+        <p class="control-copy">
+          Envia respuestas breves y naturales para que la comparacion con Azure se sienta realista.
+        </p>
+      </aside>
+    </section>
+
+    <section class="chat-grid operator-grid">
+      <article class="chat-panel operator-panel">
+        <header class="chat-header">
+          <div>
+            <p class="chat-label">Canal humano</p>
+            <h2>Conversacion con el participante</h2>
+          </div>
+          <span class="status-pill">En vivo</span>
+        </header>
+
+        <div class="messages" id="operator-messages" aria-live="polite"></div>
+
+        <form class="composer" id="operator-form">
+          <label class="sr-only" for="operator-input">Escribe tu respuesta</label>
+          <textarea id="operator-input" rows="3" placeholder="Escribe tu respuesta como humano..."></textarea>
+          <button type="submit">Responder</button>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <template id="message-template">
+    <article class="message">
+      <p class="message-role"></p>
+      <p class="message-content"></p>
+    </article>
+  </template>
+
+  <script src="/operator.js"></script>
+</body>
+</html>
